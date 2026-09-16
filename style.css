@@ -1,1 +1,367 @@
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+:root {
+  --bg-color: #0c0c0e;
+  --text-main: #f0f0f2;
+  --text-muted: #73737c;
+  --accent-color: #d4af37; /* 上品なシャンパンゴールド */
+  --border-color: rgba(255, 255, 255, 0.08);
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: monospace;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+  cursor: none; /* デフォルトのカーソルを消してカスタムカーソルを使用 */
+}
+
+/* ==========================================================================
+   CUSTOM CURSOR (マグネティックカーソル)
+   ========================================================================== */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--text-main);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+/* ホバー時のカーソル変化 */
+body.hovered .custom-cursor {
+  opacity: 0;
+}
+
+body.hovered .cursor-follower {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--text-main);
+  backdrop-filter: blur(2px);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  mix-blend-mode: difference;
+}
+
+.brand-logo {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.brand-logo sup {
+  font-size: 0.6rem;
+  color: var(--accent-color);
+  margin-left: 2px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-link {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--text-main);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10vw;
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-sub {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+}
+
+.hero-desc {
+  color: var(--text-muted);
+  max-width: 450px;
+  font-size: 0.95rem;
+  font-weight: 200;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  right: 10vw;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background-color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SECTIONS GENERAL
+   ========================================================================== */
+.section-container {
+  padding: 140px 10vw;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Concept */
+.concept-statement {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+
+.concept-text {
+  color: var(--text-muted);
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Gallery Grid */
+.section-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px 40px;
+  margin-top: 40px;
+}
+
+.work-card {
+  position: relative;
+  perspective: 1000px; /* 3Dチルト準備 */
+}
+
+.card-img-wrap {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  background-color: #16161a;
+  border-radius: 2px;
+}
+
+.dummy-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-1 { background: linear-gradient(135deg, #1f1f26, #2d2d38); }
+.img-2 { background: linear-gradient(135deg, #2a2521, #403832); }
+.img-3 { background: linear-gradient(135deg, #1a2421, #283833); }
+.img-4 { background: linear-gradient(135deg, #252026, #3b333d); }
+
+.work-card:hover .dummy-img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-overlay span {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  border-bottom: 1px solid var(--text-main);
+  padding-bottom: 4px;
+}
+
+.work-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-info {
+  margin-top: 20px;
+}
+
+.card-num {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.card-cat {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* About & Contact */
+.about-lead {
+  font-size: 1.6rem;
+  max-width: 800px;
+  font-weight: 200;
+  margin-bottom: 60px;
+}
+
+.contact-box p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.email-link {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  transition: border-color 0.3s;
+}
+
+.email-link:hover {
+  border-color: var(--text-main);
+}
+
+/* Footer */
+.site-footer {
+  padding: 40px 10vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-header {
+    padding: 20px 30px;
+  }
+  .site-nav {
+    display: none; /* スマホ用ナビは後ほど拡張可能 */
+  }
+  body {
+    cursor: auto; /* スマホでは標準カーソル */
+  }
+  .custom-cursor, .cursor-follower {
+    display: none;
+  }
+}
