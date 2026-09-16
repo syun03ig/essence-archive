@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVE / STUDIO - CONCEPT</title>
+  <!-- Google Fonts: 洗練されたフォント -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <!-- カスタムカーソル -->
+  <div class="custom-cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="brand-logo hover-target">ARCHIVE<sup>05</sup></div>
+    <nav class="site-nav">
+      <a href="#works" class="nav-link hover-target">COLLECTION</a>
+      <a href="#concept" class="nav-link hover-target">CONCEPT</a>
+      <a href="#about" class="nav-link hover-target">ABOUT</a>
+      <a href="#contact" class="nav-link hover-target">INQUIRY</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. ヒーローセクション（見開き） -->
+    <section class="hero-section">
+      <div class="hero-text-wrap">
+        <p class="hero-sub font-mono">// SELECTED WORKS 2026</p>
+        <h1 class="hero-title hover-target">ESSENCE OF<br>SILENCE</h1>
+        <p class="hero-desc">静寂と光が交差する、ミニマルな空間・プロダクトデザインのアーカイブ。</p>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>SCROLL DOWN</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- 2. コンセプトセクション -->
+    <section id="concept" class="section-container concept-section">
+      <div class="section-label font-mono">01 / PHILOSOPHY</div>
+      <h2 class="concept-statement hover-target">
+        余白を装飾し、<br>
+        本質だけを削り出す。
+      </h2>
+      <p class="concept-text">
+        装飾を最小限に抑え、光・素材・空間が織りなす繊細なバランスを追求。視線を引きつけるダイナミックなタイポグラフィと、滑らかなインタラクションが生む上質な体験。
+      </p>
+    </section>
+
+    <!-- 3. コレクション・ギャラリーセクション -->
+    <section id="works" class="section-container gallery-section">
+      <div class="section-header-flex">
+        <div class="section-label font-mono">02 / ARCHIVE</div>
+        <div class="gallery-counter font-mono">[ 01 - 04 ]</div>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Card 1 -->
+        <article class="work-card hover-target" data-tilt>
+          <div class="card-img-wrap">
+            <div class="dummy-img img-1"></div>
+            <div class="card-overlay"><span>VIEW PROJECT</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-num font-mono">01</span>
+            <h3 class="card-title">MONOLITH CHAIR</h3>
+            <p class="card-cat font-mono">PRODUCT / 2026</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="work-card hover-target" data-tilt>
+          <div class="card-img-wrap">
+            <div class="dummy-img img-2"></div>
+            <div class="card-overlay"><span>VIEW PROJECT</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-num font-mono">02</span>
+            <h3 class="card-title">SHADOW & LIGHT</h3>
+            <p class="card-cat font-mono">ARCHITECTURE / 2025</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="work-card hover-target" data-tilt>
+          <div class="card-img-wrap">
+            <div class="dummy-img img-3"></div>
+            <div class="card-overlay"><span>VIEW PROJECT</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-num font-mono">03</span>
+            <h3 class="card-title">VOID SPACE</h3>
+            <p class="card-cat font-mono">INTERIOR / 2025</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="work-card hover-target" data-tilt>
+          <div class="card-img-wrap">
+            <div class="dummy-img img-4"></div>
+            <div class="card-overlay"><span>VIEW PROJECT</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-num font-mono">04</span>
+            <h3 class="card-title">RAW SILENCE</h3>
+            <p class="card-cat font-mono">EXHIBITION / 2026</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. ABOUT & FOOTER -->
+    <section id="about" class="section-container about-section">
+      <div class="section-label font-mono">03 / STUDIO</div>
+      <div class="about-content">
+        <p class="about-lead">東京を拠点に、建築・インテリア・Webプロダクトの包括的なディレクションを行うデザインスタジオ。</p>
+        <div class="contact-box" id="contact">
+          <p class="font-mono">PROJECT INQUIRIES</p>
+          <a href="mailto:info@example.com" class="email-link hover-target">hello@archive-studio.jp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer font-mono">
+    <p>&copy; 2026 ARCHIVE STUDIO. ALL RIGHTS RESERVED.</p>
+    <p>STAGE 05 PORTFOLIO PROJECT</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
