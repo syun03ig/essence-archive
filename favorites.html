@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAVORITES / ARCHIVE STUDIO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <!-- カスタムカーソル -->
+  <div class="custom-cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <a href="index.html" class="brand-logo hover-target" style="text-decoration: none; color: inherit;">ARCHIVE<sup>05</sup></a>
+    <nav class="site-nav">
+      <a href="index.html#works" class="nav-link hover-target">COLLECTION</a>
+      <a href="index.html#concept" class="nav-link hover-target">CONCEPT</a>
+      <a href="favorites.html" class="nav-link hover-target">FAVORITES</a>
+      <a href="index.html#about" class="nav-link hover-target">ABOUT</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-container" style="padding-top: 180px; min-height: 80vh;">
+      <div class="section-header-flex">
+        <div class="section-label font-mono">YOUR COLLECTION / FAVORITES</div>
+        <a href="index.html" class="nav-link hover-target font-mono" style="font-size: 0.75rem;">← BACK TO MAIN</a>
+      </div>
+
+      <h1 class="concept-statement" style="font-size: 2.5rem; margin-bottom: 20px;">SAVED ARCHIVES</h1>
+      <p class="concept-text" style="margin-bottom: 60px;">お気に入りに登録された作品のリストです。LocalStorageに保存されています。</p>
+
+      <!-- いいねしたカードがここにJavaScriptで動的生成されます -->
+      <div id="favorites-grid" class="gallery-grid"></div>
+
+      <!-- いいねがゼロの時に表示するメッセージ -->
+      <div id="empty-message" style="display: none; padding: 60px 0; color: var(--text-muted);" class="font-mono">
+        <p>NO SAVED ITEMS YET.</p>
+        <p style="margin-top: 10px; font-size: 0.85rem;">メインギャラリーのハートマークを押してお気に入りに追加してください。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer font-mono">
+    <p>&copy; 2026 ARCHIVE STUDIO. ALL RIGHTS RESERVED.</p>
+    <p>STAGE 05 PORTFOLIO PROJECT</p>
+  </footer>
+
+  <script src="favorites.js"></script>
+</body>
+</html>
