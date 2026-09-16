@@ -365,3 +365,46 @@ body.hovered .cursor-follower {
     display: none;
   }
 }
+/* ==========================================================================
+   LIKE BUTTON
+   ========================================================================== */
+.like-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.heart-icon {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  transition: fill 0.3s ease, stroke 0.3s ease, transform 0.2s ease;
+}
+
+.like-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  border-color: var(--accent-color);
+}
+
+/* いいね（アクティブ）状態 */
+.like-btn.is-active .heart-icon {
+  fill: #e63946; /* 赤く点灯 */
+  stroke: #e63946;
+  transform: scale(1.15);
+}
+
+.like-btn.is-active {
+  border-color: rgba(230, 57, 70, 0.4);
+}
