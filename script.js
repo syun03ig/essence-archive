@@ -106,4 +106,44 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
+/* ==========================================================================
+     4. LIKE FUNCTIONALITY (お気に入り保存・LocalStorage)
+     ========================================================================== */
+  const likeBtns = document.querySelectorAll('.like-btn');
+
+  // 保存されているお気に入りIDの配列を取得（無ければ空配列）
+  let favorites = JSON.parse(localStorage.getItem('essence_favorites')) || [];
+
+  // 初期化：保存されているアイテムのハートを赤くしておく
+  cards.forEach(card => {
+    const cardId = card.getAttribute('data-id');
+    const btn = card.querySelector('.like-btn');
+    if (favorites.includes(cardId) && btn) {
+      btn.classList.add('is-active');
+    }
+  });
+
+  // クリックイベントの登録
+  likeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // カードクリックのモーダル発火などを防ぐ
+
+      const parentCard = btn.closest('.work-card');
+      const cardId = parentCard.getAttribute('data-id');
+
+      if (btn.classList.contains('is-active')) {
+        // お気に入り解除
+        btn.classList.remove('is-active');
+        favorites = favorites.filter(id => id !== cardId);
+      } else {
+        // お気に入り追加
+        btn.classList.add('is-active');
+        favorites.push(cardId);
+      }
+
+      // LocalStorageに最新状態を保存
+      localStorage.setItem('essence_favorites', JSON.stringify(favorites));
+    });
+  });
+
 });
